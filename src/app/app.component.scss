@@ -1,0 +1,54 @@
+.raceTrack {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+}
+
+.lane {
+  border: 5px solid black;
+  position: relative;
+  background-color: gray;
+
+  height: 100px;
+  margin-left: 100px;;
+}
+
+.car {
+  position: absolute;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: left 200ms;
+
+  img {
+    height: 100%;
+
+    &.me {
+      filter: grayscale(100%) sepia(100%) hue-rotate(-192deg);
+    }
+  }
+
+  .number {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.textStatus {
+  margin-top: 20px;
+  //border: thin solid black;
+  font-size: 24px;
+
+  .char.typed {
+    font-weight: bold;
+  }
+
+  /*.char.incorrect {
+    color: red;
+  }*/
+}
+
+textarea {
+  width: 100%;
+}

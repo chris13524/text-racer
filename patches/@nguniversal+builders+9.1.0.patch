@@ -1,0 +1,21 @@
+diff --git a/node_modules/@nguniversal/builders/src/ssr-dev-server/index.js b/node_modules/@nguniversal/builders/src/ssr-dev-server/index.js
+index 1033a7e..bb447c3 100755
+--- a/node_modules/@nguniversal/builders/src/ssr-dev-server/index.js
++++ b/node_modules/@nguniversal/builders/src/ssr-dev-server/index.js
+@@ -158,8 +158,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
+                                 proxyRes.headers['cache-control'] = undefined;
+                             }
+                         },
+-                    ]
++                    ],
+                     // proxyOptions is not in the typings
++                    middleware: [
++                      http_proxy_middleware_1.createProxyMiddleware('/api/ws', {
++                          target: `http://localhost:${nodeServerPort}/api/ws`,
++                          ws: true,
++                          logLevel: 'silent',
++                        })
++                    ]
+                 },
+                 host,
+                 port: bsPort,
