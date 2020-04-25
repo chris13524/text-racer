@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if (!this.isBrowser) return;
 
-    this.websocket = new WebSocket(`${window.location.protocol == "https" ? "wss" : "ws"}://${window.location.host}/api/ws`);
+    this.websocket = new WebSocket(`${window.location.protocol == "https:" ? "wss" : "ws"}://${window.location.host}/api/ws`);
     this.websocket.onmessage = event => {
       const {player, playerCount, textChallenge}: { player: number, playerCount: number, textChallenge: string } = JSON.parse(event.data);
       this.player = player;
